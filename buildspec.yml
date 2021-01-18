@@ -1,0 +1,29 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      golang: 1.15
+    commands:
+      - go get github.com/thewhitetulip/Tasks
+
+  pre_build: 
+    commands:
+
+
+      # Run all tests included with our application
+      - go test
+
+  build:
+    commands:
+
+      # Build our application
+      - go build -o app
+
+artifacts:
+  files:
+    - app
+    - appspec.yml
+    - buildspec.yml
+    - config/*
+    - codedeploy/*
+    - cloudformation/*
