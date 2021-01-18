@@ -4,26 +4,16 @@ phases:
     runtime-versions:
       golang: 1.15
     commands:
-      - go get github.com/thewhitetulip/Tasks
+      - go get ./...
 
-  pre_build: 
+  pre_build:
     commands:
-
-
-      # Run all tests included with our application
-      - go test
-
+      #- cd $CODEBUILD_SRC_DIR/Tasks
+    #  - cat schema.sql | sqlite3 tasks.db
   build:
     commands:
-
-      # Build our application
       - go build -o app
 
 artifacts:
-  files:
-    - app
-    - appspec.yml
-    - buildspec.yml
-    - config/*
-    - codedeploy/*
-    - cloudformation/*
+   files:
+     - app
