@@ -17,3 +17,6 @@ phases:
 artifacts:
    files:
      - application.go
+     - temlates/*
+     - config.json
+     - tasks.db
