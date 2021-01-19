@@ -12,7 +12,7 @@ phases:
     #  - cat schema.sql | sqlite3 tasks.db
   build:
     commands:
-      - go build -o app
+      - go build -o application.go
 
 artifacts:
    files:
