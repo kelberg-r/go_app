@@ -23,7 +23,7 @@ phases:
       #- zip ../application.zip -r * .[^.]*
 artifacts:
    files:
-     - **/*
+     - '**/*'
      #- application
      #- config.json
      #- tasks.db
