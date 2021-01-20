@@ -7,11 +7,12 @@ phases:
     runtime-versions:
       golang: 1.15
     commands:
-      - cd "/go/src/${PACKAGE}"
-      - go get -t ./...
-
+      - mkdir -p "/go/src/$(dirname ${PACKAGE})"
+      - ln -s "${CODEBUILD_SRC_DIR}" "/go/src/${PACKAGE}"
   pre_build:
     commands:
+      - cd "/go/src/${PACKAGE}"
+      - go get -t ./...
       #- cd $CODEBUILD_SRC_DIR/Tasks
     #  - cat schema.sql | sqlite3 tasks.db
   build:
