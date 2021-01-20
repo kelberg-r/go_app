@@ -19,6 +19,7 @@ phases:
     commands:
       - go build -o application
   post_build:
+    commands:
       - zip ../application.zip -r * .[^.]*
 artifacts:
    files:
