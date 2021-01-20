@@ -1,4 +1,7 @@
 version: 0.2
+env:
+  variables:
+    PACKAGE: "github.com/kelberg-r/go_app"
 phases:
   install:
     runtime-versions:
