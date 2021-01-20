@@ -18,13 +18,10 @@ phases:
   build:
     commands:
       - go build -o application
-  #post_build:
-    #commands:
-      #- zip ../application.zip -r * .[^.]*
 artifacts:
    files:
-     #- '**/*'
-     - application
-     - config.json
-     - tasks.db
-     - templates/**/*
+     - '**/*'
+     #- application
+     #- config.json
+     #- tasks.db
+    # - templates/**/*
