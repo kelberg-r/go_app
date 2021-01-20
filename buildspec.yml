@@ -4,7 +4,7 @@ phases:
     runtime-versions:
       golang: 1.15
     commands:
-      - go get github.com/thewhitetulip/Tasks
+      - go get ./...
 
   pre_build:
     commands:
