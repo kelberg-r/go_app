@@ -4,7 +4,8 @@ phases:
     runtime-versions:
       golang: 1.15
     commands:
-      - go get ./...
+      - cd "/go/src/${PACKAGE}"
+      - go get -t ./...
 
   pre_build:
     commands:
