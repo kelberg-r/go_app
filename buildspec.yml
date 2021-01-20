@@ -11,7 +11,7 @@ phases:
       - ln -s "${CODEBUILD_SRC_DIR}" "/go/src/${PACKAGE}"
   pre_build:
     commands:
-      - apt update && sudo apt-get -y install sqlite3
+      - apt-get update && apt-get -y install sqlite3
       - cd "/go/src/${PACKAGE}"
       - go get -t ./...
       #- cd $CODEBUILD_SRC_DIR/Tasks
