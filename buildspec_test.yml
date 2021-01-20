@@ -23,7 +23,6 @@ phases:
 
   build:
     commands:
-        - cp -r git .git
         - mvn package 
         - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url="https://sonarcloud.io" -Dsonar.projectKey="app-1" -Dsonar.organization="aws-cd"
         - sleep 5
