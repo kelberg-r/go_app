@@ -1,7 +1,8 @@
 version: 0.2
 env:
   variables:
-    PACKAGE: "github.com/kelberg-r/go_app"
+    PACKAGE: "github.com/Arthurflame/Tasks"
+    #PACKAGE: "github.com/kelberg-r/go_app"
 phases:
   install:
     runtime-versions:
