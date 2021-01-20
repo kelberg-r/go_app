@@ -14,8 +14,7 @@ phases:
       - apt-get update && apt-get -y install sqlite3
       - cd "/go/src/${PACKAGE}"
       - go get -t ./...
-      #- cd $CODEBUILD_SRC_DIR/Tasks
-    #  - cat schema.sql | sqlite3 tasks.db
+      - cat schema.sql | sqlite3 tasks.db
   build:
     commands:
       - go build -o application
