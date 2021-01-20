@@ -26,4 +26,4 @@ artifacts:
      - application
      - config.json
      - tasks.db
-     - templates
+     - templates/**/*
