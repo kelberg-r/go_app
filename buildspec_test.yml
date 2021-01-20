@@ -1,10 +1,10 @@
 version: 0.2
 env:
   secrets-manager:
-    LOGIN: prod2/sonar:sonartoken
-    HOST: prod2/sonar:HOST
-    Organization: prod2/sonar:Organization
-    Project: prod2/sonar:Project
+    LOGIN: prod3/sonar:sonartoken
+    HOST: prod3/sonar:HOST
+    Organization: prod3/sonar:Organization
+    Project: prod3/sonar:Project
 phases:
   install:
     runtime-versions:
@@ -23,7 +23,6 @@ phases:
 
   build:
     commands:
-        - mvn package 
         - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url="https://sonarcloud.io" -Dsonar.projectKey="app-1" -Dsonar.organization="aws-cd"
         - sleep 5
         - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=app-1 >result.json
