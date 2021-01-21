@@ -20,9 +20,15 @@ phases:
       - echo "Unzip completed."
       - rm sonar-scanner-cli-4.4.0.2170-linux.zip
       - export PATH=$PATH:/tmp/sonar-scanner-4.4.0.2170-linux/bin
-  build:
+  pre_build:
     commands:
       - cd ${CODEBUILD_SRC_DIR}
+   # Vet examines Go source code and reports suspicious constructs
+      - go vet ./...
+   # Run unit tests 
+      - go test ./...
+  build:
+    commands:
       - sonar-scanner -Dsonar.organization=$Organization -Dsonar.projectKey=$Project -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
