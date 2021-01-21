@@ -16,7 +16,7 @@ phases:
       - echo "Unziping downloaded file..."
       - unzip sonar-scanner-cli-4.4.0.2170-linux.zip
       - echo "Unzip completed."
-      - rm sonar-scanner-cli-3.2.0.1227-linux.zip
+      - rm sonar-scanner-cli-4.4.0.2170-linux.zip
       - export PATH=$PATH:/tmp/sonar-scanner-4.4.0.2170-linux/bin
   build:
     commands:
