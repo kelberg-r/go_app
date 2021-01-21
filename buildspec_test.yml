@@ -10,6 +10,8 @@ phases:
     runtime-versions:
       java: openjdk8
     commands:
+      - apt-get update
+      - apt-get install -y jq
       - cd /tmp
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.4.0.2170-linux.zip
       - echo "Download completed."
@@ -22,4 +24,7 @@ phases:
     commands:
       - cd ${CODEBUILD_SRC_DIR}
       - sonar-scanner -Dsonar.organization=$Organization -Dsonar.projectKey=$Project -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST
-      
+      - sleep 5
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
+      - cat result.json
+      - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
