@@ -5,12 +5,16 @@ env:
     HOST: prod3/sonar:HOST
     Organization: prod3/sonar:Organization
     Project: prod3/sonar:Project
+  variables:
+    PACKAGE: "github.com/kelberg-r/go_app"
 phases:
   install:
     runtime-versions:
       java: openjdk8
       golang: 1.13
     commands:
+      - mkdir -p "/go/src/$(dirname ${PACKAGE})"
+      - ln -s "${CODEBUILD_SRC_DIR}" "/go/src/${PACKAGE}"
       - apt-get update
       - apt-get install -y jq
       - cd /tmp
@@ -23,7 +27,7 @@ phases:
       - export PATH=$PATH:/tmp/sonar-scanner-4.4.0.2170-linux/bin
   pre_build:
     commands:
-      - cd ${CODEBUILD_SRC_DIR}
+      - cd "/go/src/${PACKAGE}"
       - go get -t ./...
    # Vet examines Go source code and reports suspicious constructs
       - go vet ./...
