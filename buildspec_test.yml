@@ -9,7 +9,7 @@ phases:
   install:
     runtime-versions:
       java: openjdk8
-      golang: 1.14
+      golang: 1.13
     commands:
       - apt-get update
       - apt-get install -y jq
