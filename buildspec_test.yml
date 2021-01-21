@@ -28,7 +28,8 @@ phases:
   pre_build:
     commands:
       - cd "/go/src/${PACKAGE}"
-      - go get -t ./...
+#Unhash it to add unit testing
+   #   - go get -t ./...
    # Vet examines Go source code and reports suspicious constructs
    #   - go vet ./...
    # Run unit tests 
