@@ -10,7 +10,7 @@ env:
 phases:
   install:
     runtime-versions:
-      java: openjdk8
+      java: openjdk11
       golang: 1.13
     commands:
       - mkdir -p "/go/src/$(dirname ${PACKAGE})"
