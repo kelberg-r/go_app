@@ -1,10 +1,7 @@
 version: 0.2
 env:
-  secrets-manager:
-    LOGIN: prod3/sonar:sonartoken
-    HOST: prod3/sonar:HOST
-    Organization: prod3/sonar:Organization
-    Project: prod3/sonar:Project
+  parameter-store:
+    LOGIN: sonartoken
   variables:
     PACKAGE: "github.com/kelberg-r/go_app"
 phases:
@@ -36,7 +33,7 @@ phases:
    #   - go test ./...
   build:
     commands:
-      - sonar-scanner -Dsonar.organization=$Organization -Dsonar.projectKey=$Project -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST
+      - sonar-scanner -Dsonar.organization="kelberg-r" -Dsonar.projectKey="go_app" -Dsonar.login=$LOGIN -Dsonar.host.url="https://sonarcloud.io"
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
       - cat result.json
