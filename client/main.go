@@ -26,5 +26,8 @@ func main() {
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
+		fmt.Println("Error reading body")
+	}
+	fmt.Println(string(body))
 
 }
