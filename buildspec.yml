@@ -1,4 +1,9 @@
 version: 0.2
+env:
+  AWS_DEFAULT_REGION: us-east-1
+  AWS_ACCOUNT_ID: 242307434447
+  IMAGE_TAG: Latest
+  IMAGE_REPO_NAME: goapp
 phases:
   install:
     commands:
