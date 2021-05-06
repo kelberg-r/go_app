@@ -5,7 +5,7 @@ phases:
       docker: 18
   pre_build:
     commands: 
-#     - systemctl docker start
+    - service start docker
     - echo Logging in to Amazon ECR.... 
     - aws --version
     # update the following line with your own region
