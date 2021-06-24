@@ -21,4 +21,4 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 435248902236.dkr.ecr.us-east-1.amazonaws.com/test:$IMAGE_TAG
-#restart
+#restart2
