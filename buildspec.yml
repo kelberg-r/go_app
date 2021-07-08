@@ -12,6 +12,7 @@ phases:
       - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
       - apt-get update && apt-get -y install sqlite3 awscli
       - cd "/go/src/${PACKAGE}"
+      - go mod init
       - go get -t ./...
       - cat schema.sql | sqlite3 tasks.db
   build:
